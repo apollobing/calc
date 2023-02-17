@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Main {
 
@@ -42,7 +43,11 @@ public class Main {
         // System.out.println(convertToRomanNumber(3));
 
         // System.out.println("Hi, Maria!");
-        calc("V - I");
+        System.out.print("Please type your expression: ");
+        Scanner scan = new Scanner(System.in);
+        calc(scan.nextLine());
+        scan.close();
+
     }
 
     public static String calc(String string) throws Exception {
@@ -65,7 +70,8 @@ public class Main {
         romanNumbers.put("II", 2);
         romanNumbers.put("I", 1);
 
-        if (romanNumbers.containsKey(stringToArray[0]) && romanNumbers.containsKey(stringToArray[2])) {
+        if (romanNumbers.containsKey(stringToArray[0]) && romanNumbers.containsKey(stringToArray[2])
+                && romanNumbers.get(stringToArray[0]) > romanNumbers.get(stringToArray[2])) {
             operand1 = romanNumbers.get(stringToArray[0]);
             operand2 = romanNumbers.get(stringToArray[2]);
             operator = stringToArray[1];
