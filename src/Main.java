@@ -70,8 +70,7 @@ public class Main {
         romanNumbers.put("II", 2);
         romanNumbers.put("I", 1);
 
-        if (romanNumbers.containsKey(stringToArray[0]) && romanNumbers.containsKey(stringToArray[2])
-                && romanNumbers.get(stringToArray[0]) > romanNumbers.get(stringToArray[2])) {
+        if (romanNumbers.containsKey(stringToArray[0]) && romanNumbers.containsKey(stringToArray[2])) {
             operand1 = romanNumbers.get(stringToArray[0]);
             operand2 = romanNumbers.get(stringToArray[2]);
             operator = stringToArray[1];
@@ -89,7 +88,8 @@ public class Main {
 
         ) {
             if (operator.equals("/") && romanNumbers.containsKey(stringToArray[0])
-                    && romanNumbers.containsKey(stringToArray[2])) {
+                    && romanNumbers.containsKey(stringToArray[2])
+                    && romanNumbers.get(stringToArray[0]) > romanNumbers.get(stringToArray[2])) {
                 int divideResult = operand1 / operand2;
                 System.out.println(convertToRomanNumber(divideResult));
                 return convertToRomanNumber(divideResult);
@@ -115,7 +115,8 @@ public class Main {
             }
 
             if (operator.equals("-") && romanNumbers.containsKey(stringToArray[0])
-                    && romanNumbers.containsKey(stringToArray[2])) {
+                    && romanNumbers.containsKey(stringToArray[2])
+                    && romanNumbers.get(stringToArray[0]) > romanNumbers.get(stringToArray[2])) {
                 int minusResult = operand1 - operand2;
                 System.out.println(convertToRomanNumber(minusResult));
                 return convertToRomanNumber(minusResult);
